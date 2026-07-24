@@ -1,0 +1,430 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1c20"/>
+      <stop offset="40%" stop-color="#132a30"/>
+      <stop offset="100%" stop-color="#0a1418"/>
+    </linearGradient>
+    <linearGradient id="mountain-far" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a6a6e" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1a3a3f" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="mountain-mid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d5a5f" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#1a3a3f" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="mountain-near" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a4a4f" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0f2025" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="sky-glow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0f1c20" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#d4a08a" stop-opacity="0.04"/>
+      <stop offset="80%" stop-color="#efc8b2" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#efc8b2" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="mesh-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#4ecdc4" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#5ce0d8" stop-opacity="0.8"/>
+      <stop offset="85%" stop-color="#4ecdc4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#4ecdc4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mesh-fade-dim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2d8a85" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#2d8a85" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#4ecdc4" stop-opacity="0.4"/>
+      <stop offset="80%" stop-color="#2d8a85" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2d8a85" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="datastream" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ecdc4" stop-opacity="0"/>
+      <stop offset="10%" stop-color="#4ecdc4" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#5ce0d8" stop-opacity="0.7"/>
+      <stop offset="90%" stop-color="#4ecdc4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#4ecdc4" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="coral-burst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f07040" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#e86830" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#e86830" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="blur-2"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="blur-4"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="blur-6"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+
+  <style>
+    @keyframes wave-mesh{0%{transform:translateX(0)}100%{transform:translateX(-60px)}}
+    @keyframes wave-mesh-r{0%{transform:translateX(0)}100%{transform:translateX(50px)}}
+    @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes drift-s{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+    @keyframes frag-1{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.55}50%{transform:translate(4px,-8px) rotate(2deg);opacity:0.35}}
+    @keyframes frag-2{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.5}50%{transform:translate(-5px,-10px) rotate(-2.5deg);opacity:0.3}}
+    @keyframes frag-3{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.6}50%{transform:translate(3px,-6px) rotate(1.5deg);opacity:0.4}}
+    @keyframes frag-4{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.45}50%{transform:translate(-3px,-12px) rotate(-3deg);opacity:0.25}}
+    @keyframes frag-5{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.5}50%{transform:translate(6px,-5px) rotate(2deg);opacity:0.3}}
+    @keyframes frag-6{0%,100%{transform:translate(0,0) rotate(0deg);opacity:0.55}50%{transform:translate(-4px,-9px) rotate(-1.5deg);opacity:0.35}}
+    @keyframes light-1{0%,40%,100%{opacity:0.7}50%,90%{opacity:0.15}}
+    @keyframes light-2{0%,60%,100%{opacity:0.15}70%,95%{opacity:0.7}}
+    @keyframes light-3{0%,20%,50%,100%{opacity:0.6}30%,60%{opacity:0.1}}
+    @keyframes light-4{0%,80%,100%{opacity:0.1}85%,98%{opacity:0.65}}
+    @keyframes light-5{0%,30%,70%,100%{opacity:0.55}40%,80%{opacity:0.1}}
+    @keyframes stream-flow{0%{transform:translateX(-100px)}100%{transform:translateX(1000px)}}
+    @keyframes text-reveal{0%,50%{opacity:0}65%{opacity:0.5}100%{opacity:0.8}}
+    @keyframes splatter{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.15);opacity:0.8}}
+    @keyframes pulse-soft{0%,100%{opacity:0.25}50%{opacity:0.5}}
+    .mesh{animation:wave-mesh 12s linear infinite}
+    .mesh-r{animation:wave-mesh-r 14s linear infinite}
+    .mesh-slow{animation:wave-mesh 18s linear infinite}
+    .drift{animation:drift 12s ease-in-out infinite}
+    .drift-s{animation:drift-s 15s ease-in-out infinite}
+    .f1{animation:frag-1 14s ease-in-out infinite}
+    .f2{animation:frag-2 16s ease-in-out infinite}
+    .f3{animation:frag-3 13s ease-in-out infinite}
+    .f4{animation:frag-4 18s ease-in-out infinite}
+    .f5{animation:frag-5 15s ease-in-out infinite}
+    .f6{animation:frag-6 17s ease-in-out infinite}
+    .w1{animation:light-1 8s ease-in-out infinite}
+    .w2{animation:light-2 10s ease-in-out infinite}
+    .w3{animation:light-3 7s ease-in-out infinite}
+    .w4{animation:light-4 12s ease-in-out infinite}
+    .w5{animation:light-5 9s ease-in-out infinite}
+    .stream{animation:stream-flow 18s linear infinite}
+    .stream-b{animation:stream-flow 22s linear infinite;animation-delay:-8s}
+    .stream-c{animation:stream-flow 20s linear infinite;animation-delay:-14s}
+    .txt-reveal{animation:text-reveal 10s ease-in-out infinite}
+    .splat{animation:splatter 10s ease-in-out infinite}
+    .pulse-s{animation:pulse-soft 8s ease-in-out infinite}
+    @keyframes twinkle{0%,100%{opacity:0.05}50%{opacity:0.45}}
+    @keyframes twinkle-b{0%,100%{opacity:0.08}50%{opacity:0.4}}
+    .star{animation:twinkle 12s ease-in-out infinite}
+    .star-b{animation:twinkle-b 16s ease-in-out infinite}
+    @keyframes ski-down{0%{stroke-dashoffset:200;opacity:0}10%{opacity:0.7}90%{opacity:0.7}100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes ski-down-2{0%{stroke-dashoffset:180;opacity:0}10%{opacity:0.6}90%{opacity:0.6}100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes glide{0%{transform:translate(0,0)}100%{transform:translate(180px,25px)}}
+    @keyframes glide-2{0%{transform:translate(0,0)}100%{transform:translate(-160px,20px)}}
+    @keyframes sway{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    .ski-1{stroke-dasharray:15 185;animation:ski-down 12s linear infinite}
+    .ski-2{stroke-dasharray:12 168;animation:ski-down-2 15s linear infinite;animation-delay:-5s}
+    .ski-3{stroke-dasharray:10 190;animation:ski-down 18s linear infinite;animation-delay:-9s}
+    .glider{animation:glide 20s linear infinite}
+    .glider-2{animation:glide-2 25s linear infinite;animation-delay:-10s}
+    .glider-3{animation:glide 28s linear infinite;animation-delay:-15s}
+    .sway{animation:sway 4s ease-in-out infinite}
+    @keyframes cable-up{0%{transform:translate(0,0)}100%{transform:translate(-80px,-50px)}}
+    @keyframes cable-down{0%{transform:translate(0,0)}100%{transform:translate(80px,50px)}}
+    @keyframes ski-down-3{0%{stroke-dashoffset:160;opacity:0}10%{opacity:0.5}90%{opacity:0.5}100%{stroke-dashoffset:0;opacity:0}}
+    .cable-u{animation:cable-up 30s linear infinite}
+    .cable-d{animation:cable-down 30s linear infinite;animation-delay:-15s}
+    .ski-4{stroke-dasharray:10 150;animation:ski-down-3 20s linear infinite;animation-delay:-3s}
+    .ski-5{stroke-dasharray:8 152;animation:ski-down-3 16s linear infinite;animation-delay:-11s}
+  </style>
+
+  <rect width="900" height="300" fill="url(#bg)"/>
+  <rect width="900" height="300" fill="url(#sky-glow)"/>
+
+  <g class="mesh" opacity="0.5">
+    <path d="M-60,28 C40,22 100,36 170,26 C240,16 310,33 380,23 C450,13 520,30 590,20 C660,10 730,28 800,18 C870,8 940,23 960,20" stroke="url(#mesh-fade)" stroke-width="0.6" fill="none"/>
+    <path d="M-60,35 C40,29 100,43 170,33 C240,23 310,40 380,30 C450,20 520,37 590,27 C660,17 730,35 800,25 C870,15 940,30 960,27" stroke="url(#mesh-fade)" stroke-width="0.55" fill="none"/>
+    <path d="M-60,42 C40,37 100,50 170,40 C240,30 310,47 380,37 C450,27 520,44 590,34 C660,24 730,42 800,32 C870,22 940,37 960,34" stroke="url(#mesh-fade)" stroke-width="0.5" fill="none"/>
+    <path d="M-60,49 C40,44 100,57 170,47 C240,37 310,54 380,44 C450,34 520,51 590,41 C660,31 730,49 800,39 C870,29 940,44 960,41" stroke="url(#mesh-fade)" stroke-width="0.45" fill="none"/>
+    <path d="M-60,56 C40,52 100,64 170,54 C240,44 310,61 380,51 C450,41 520,58 590,48 C660,38 730,56 800,46 C870,36 940,51 960,48" stroke="url(#mesh-fade-dim)" stroke-width="0.4" fill="none"/>
+    <path d="M-60,63 C40,59 100,71 170,61 C240,51 310,68 380,58 C450,48 520,65 590,55 C660,45 730,63 800,53 C870,43 940,58 960,55" stroke="url(#mesh-fade-dim)" stroke-width="0.35" fill="none"/>
+    <path d="M-60,70 C40,67 100,78 170,68 C240,59 310,75 380,65 C450,56 520,72 590,62 C660,53 730,70 800,60 C870,51 940,65 960,62" stroke="url(#mesh-fade-dim)" stroke-width="0.3" fill="none"/>
+  </g>
+  <g class="mesh-r" opacity="0.3">
+    <path d="M-60,45 C50,39 130,53 220,42 C310,31 390,49 480,38 C570,27 650,45 740,35 C830,25 900,40 960,35" stroke="url(#mesh-fade)" stroke-width="0.4" fill="none"/>
+    <path d="M-60,52 C50,47 130,60 220,49 C310,39 390,56 480,46 C570,35 650,52 740,42 C830,33 900,47 960,42" stroke="url(#mesh-fade-dim)" stroke-width="0.35" fill="none"/>
+    <path d="M-60,59 C50,55 130,67 220,56 C310,46 390,63 480,53 C570,43 650,59 740,49 C830,40 900,54 960,49" stroke="url(#mesh-fade-dim)" stroke-width="0.3" fill="none"/>
+  </g>
+  <g class="mesh-slow" opacity="0.15">
+    <path d="M-60,78 C60,73 140,85 240,76 C340,67 420,82 520,73 C620,64 700,80 800,71 C870,65 940,76 960,73" stroke="url(#mesh-fade-dim)" stroke-width="0.25" fill="none"/>
+  </g>
+
+  <path class="drift-s" d="M0,160 L30,153 L55,157 L80,143 L110,148 L140,130 L165,135 L190,115 L210,122 L235,108 L260,113 L285,100 L310,107 L340,94 L365,100 L385,90 L410,97 L440,103 L470,100 L500,105 L530,98 L555,103 L580,110 L610,105 L640,113 L670,108 L700,115 L730,120 L760,127 L790,133 L820,138 L850,143 L880,148 L900,153 L900,200 L0,200 Z" fill="url(#mountain-far)" filter="url(#blur-4)"/>
+
+  <path class="drift" d="M0,190 L40,185 L70,180 L100,173 L125,177 L150,162 L170,167 L195,150 L215,155 L235,138 L250,143 L270,128 L285,133 L305,120 L320,127 L345,135 L370,130 L395,137 L420,143 L450,140 L480,145 L510,150 L540,143 L565,147 L590,153 L620,150 L650,155 L680,160 L710,165 L740,170 L770,175 L800,180 L830,183 L860,187 L900,193 L900,225 L0,225 Z" fill="url(#mountain-mid)"/>
+
+  <path d="M0,218 L50,214 L100,210 L150,206 L200,202 L250,199 L300,202 L350,205 L400,207 L450,205 L500,202 L550,205 L600,208 L650,211 L700,214 L750,217 L800,219 L850,221 L900,223 L900,235 L0,235 Z" fill="url(#mountain-near)"/>
+
+  <g opacity="0.2" class="drift-s">
+    <path d="M235,108 L239,106 L243,110" stroke="#ffffff" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+    <path d="M285,100 L289,98 L293,102" stroke="#ffffff" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+    <path d="M340,94 L344,92 L348,96" stroke="#ffffff" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+    <path d="M385,90 L389,88 L393,92" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M305,120 L309,118 L313,122" stroke="#ffffff" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <g class="drift">
+    <rect x="390" y="202" width="18" height="28" fill="#142e33" opacity="0.7"/>
+    <path d="M388,202 L399,190 L410,202" fill="#1a4a4f" opacity="0.7"/>
+    <rect class="w1" x="394" y="208" width="3" height="3" fill="#d4a050" opacity="0.6" rx="0.5"/>
+    <rect class="w3" x="401" y="208" width="3" height="3" fill="#d4a050" opacity="0.5" rx="0.5"/>
+    <rect class="w2" x="394" y="216" width="3" height="3" fill="#4ecdc4" opacity="0.4" rx="0.5"/>
+    <rect class="w5" x="401" y="216" width="3" height="3" fill="#d4a050" opacity="0.6" rx="0.5"/>
+    <rect class="w4" x="394" y="223" width="3" height="3" fill="#4ecdc4" opacity="0.3" rx="0.5"/>
+
+    <rect x="412" y="197" width="20" height="33" fill="#12282c" opacity="0.7"/>
+    <path d="M410,197 L422,183 L434,197" fill="#1a4a4f" opacity="0.7"/>
+    <rect class="w4" x="416" y="203" width="3" height="3" fill="#d4a050" opacity="0.5" rx="0.5"/>
+    <rect class="w1" x="423" y="203" width="3" height="3" fill="#4ecdc4" opacity="0.5" rx="0.5"/>
+    <rect class="w2" x="416" y="210" width="3" height="3" fill="#d4a050" opacity="0.6" rx="0.5"/>
+    <rect class="w5" x="423" y="210" width="3" height="3" fill="#d4a050" opacity="0.4" rx="0.5"/>
+    <rect class="w3" x="416" y="218" width="3" height="3" fill="#4ecdc4" opacity="0.3" rx="0.5"/>
+    <rect class="w1" x="423" y="218" width="3" height="3" fill="#d4a050" opacity="0.5" rx="0.5"/>
+    <rect class="w4" x="416" y="225" width="3" height="3" fill="#d4a050" opacity="0.3" rx="0.5"/>
+
+    <rect x="436" y="200" width="16" height="30" fill="#142e33" opacity="0.7"/>
+    <path d="M434,200 L444,187 L454,200" fill="#1a4a4f" opacity="0.7"/>
+    <path d="M436,200 L444,194 L452,200" fill="#d4a050" opacity="0.45"/>
+    <rect class="w2" x="440" y="206" width="3" height="3" fill="#d4a050" opacity="0.5" rx="0.5"/>
+    <rect class="w5" x="447" y="206" width="3" height="3" fill="#4ecdc4" opacity="0.4" rx="0.5"/>
+    <rect class="w3" x="440" y="214" width="3" height="3" fill="#d4a050" opacity="0.6" rx="0.5"/>
+    <rect class="w1" x="447" y="214" width="3" height="3" fill="#d4a050" opacity="0.3" rx="0.5"/>
+    <rect class="w4" x="440" y="222" width="3" height="3" fill="#4ecdc4" opacity="0.4" rx="0.5"/>
+
+    <rect x="456" y="204" width="15" height="26" fill="#12282c" opacity="0.65"/>
+    <path d="M454,204 L463,193 L473,204" fill="#1a4a4f" opacity="0.65"/>
+    <rect class="w5" x="459" y="209" width="3" height="3" fill="#d4a050" opacity="0.5" rx="0.5"/>
+    <rect class="w2" x="466" y="209" width="3" height="3" fill="#d4a050" opacity="0.4" rx="0.5"/>
+    <rect class="w1" x="459" y="217" width="3" height="3" fill="#4ecdc4" opacity="0.35" rx="0.5"/>
+    <rect class="w3" x="466" y="217" width="3" height="3" fill="#d4a050" opacity="0.55" rx="0.5"/>
+
+    <rect x="474" y="199" width="14" height="31" fill="#142e33" opacity="0.6"/>
+    <path d="M472,199 L481,188 L490,199" fill="#1a4a4f" opacity="0.6"/>
+    <rect class="w3" x="477" y="204" width="3" height="3" fill="#d4a050" opacity="0.45" rx="0.5"/>
+    <rect class="w4" x="484" y="204" width="3" height="3" fill="#4ecdc4" opacity="0.4" rx="0.5"/>
+    <rect class="w1" x="477" y="212" width="3" height="3" fill="#d4a050" opacity="0.55" rx="0.5"/>
+    <rect class="w5" x="484" y="212" width="3" height="3" fill="#d4a050" opacity="0.35" rx="0.5"/>
+    <rect class="w2" x="477" y="220" width="3" height="3" fill="#4ecdc4" opacity="0.3" rx="0.5"/>
+  </g>
+
+  <g class="drift" opacity="0.6">
+    <rect x="495" y="178" width="10" height="52" fill="#142e33"/>
+    <path d="M494,178 L500,163 L506,178" fill="#1a4a4f"/>
+    <circle cx="500" cy="167" r="1.2" fill="#d4a050" opacity="0.5"/>
+    <rect class="w2" x="498" y="195" width="4" height="5" fill="#d4a050" opacity="0.4" rx="0.5"/>
+    <rect class="w4" x="498" y="210" width="4" height="5" fill="#4ecdc4" opacity="0.3" rx="0.5"/>
+  </g>
+
+  <g opacity="0.2" class="drift-s">
+    <path d="M370,235 C378,226 390,226 398,235" stroke="#4ecdc4" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M398,235 C406,226 418,226 426,235" stroke="#4ecdc4" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M426,235 C434,226 446,226 454,235" stroke="#4ecdc4" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M454,235 C462,226 474,226 482,235" stroke="#4ecdc4" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+    <path d="M482,235 C490,226 502,226 510,235" stroke="#4ecdc4" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <path d="M-20,260 C60,230 120,270 200,245 C280,220 330,275 420,250 C510,225 560,278 650,255 C740,232 790,272 880,248 C920,238 940,255 960,250" stroke="url(#datastream)" stroke-width="6" fill="none" filter="url(#blur-6)" opacity="0.35"/>
+  <path d="M-20,258 C65,230 125,268 205,244 C285,220 335,272 425,248 C515,224 565,275 655,253 C745,231 795,270 885,247 C925,237 945,253 960,248" stroke="url(#datastream)" stroke-width="3" fill="none" filter="url(#blur-2)" opacity="0.3"/>
+  <path d="M-20,259 C62,231 122,269 202,244 C282,219 332,274 422,249 C512,224 562,277 652,254 C742,231 792,271 882,247 C922,237 942,254 960,249" stroke="url(#datastream)" stroke-width="1.5" fill="none" opacity="0.45"/>
+
+  <g class="stream" opacity="0.55">
+    <rect x="0" y="248" width="8" height="2" fill="#4ecdc4" opacity="0.7" rx="1"/>
+    <rect x="18" y="245" width="5" height="1.5" fill="#5ce0d8" opacity="0.5" rx="0.75"/>
+    <rect x="35" y="250" width="12" height="2" fill="#4ecdc4" opacity="0.6" rx="1"/>
+    <rect x="55" y="244" width="4" height="1.5" fill="#2d8a85" opacity="0.5" rx="0.75"/>
+    <rect x="68" y="252" width="9" height="2" fill="#4ecdc4" opacity="0.7" rx="1"/>
+    <rect x="86" y="246" width="6" height="1.5" fill="#5ce0d8" opacity="0.4" rx="0.75"/>
+  </g>
+  <g class="stream-b" opacity="0.4">
+    <rect x="0" y="250" width="6" height="1.5" fill="#2d8a85" opacity="0.6" rx="0.75"/>
+    <rect x="14" y="246" width="10" height="2" fill="#4ecdc4" opacity="0.5" rx="1"/>
+    <rect x="32" y="252" width="4" height="1.5" fill="#5ce0d8" opacity="0.4" rx="0.75"/>
+    <rect x="46" y="244" width="7" height="2" fill="#4ecdc4" opacity="0.6" rx="1"/>
+    <rect x="62" y="249" width="5" height="1.5" fill="#2d8a85" opacity="0.5" rx="0.75"/>
+    <rect x="76" y="247" width="11" height="2" fill="#4ecdc4" opacity="0.5" rx="1"/>
+  </g>
+  <g class="stream-c" opacity="0.3">
+    <rect x="0" y="247" width="7" height="1.5" fill="#4ecdc4" opacity="0.5" rx="0.75"/>
+    <rect x="16" y="251" width="5" height="2" fill="#5ce0d8" opacity="0.4" rx="1"/>
+    <rect x="30" y="245" width="9" height="1.5" fill="#2d8a85" opacity="0.5" rx="0.75"/>
+    <rect x="48" y="250" width="6" height="2" fill="#4ecdc4" opacity="0.6" rx="1"/>
+    <rect x="63" y="246" width="4" height="1.5" fill="#5ce0d8" opacity="0.4" rx="0.75"/>
+  </g>
+
+
+  <g class="f1" style="animation-delay:0s">
+    <polygon points="220,120 226,117 228,125 222,127" fill="#1a4a4f" opacity="0.55"/>
+  </g>
+  <g class="f2" style="animation-delay:-3s">
+    <polygon points="250,108 255,105 257,112 252,114" fill="#2d6b6e" opacity="0.45"/>
+  </g>
+  <g class="f3" style="animation-delay:-6s">
+    <polygon points="310,95 316,92 318,100 312,102" fill="#1a4a4f" opacity="0.5"/>
+    <polygon points="318,100 322,97 324,104 320,106" fill="#2d8a85" opacity="0.3"/>
+  </g>
+  <g class="f4" style="animation-delay:-2s">
+    <polygon points="365,88 370,85 372,93 367,95" fill="#2d6b6e" opacity="0.5"/>
+  </g>
+  <g class="f5" style="animation-delay:-8s">
+    <polygon points="400,95 405,92 407,99 402,101" fill="#1a4a4f" opacity="0.4"/>
+  </g>
+  <g class="f6" style="animation-delay:-5s">
+    <polygon points="150,130 155,127 157,135 152,137" fill="#2d6b6e" opacity="0.45"/>
+    <polygon points="158,126 162,123 164,130 160,132" fill="#1a4a4f" opacity="0.35"/>
+  </g>
+  <g class="f1" style="animation-delay:-10s">
+    <polygon points="530,100 535,97 537,105 532,107" fill="#1a4a4f" opacity="0.4"/>
+  </g>
+  <g class="f2" style="animation-delay:-7s">
+    <polygon points="600,110 605,107 607,115 602,117" fill="#2d6b6e" opacity="0.45"/>
+    <polygon points="610,105 614,102 616,109 612,111" fill="#1a4a4f" opacity="0.3"/>
+  </g>
+  <g class="f3" style="animation-delay:-12s">
+    <polygon points="680,105 685,102 687,110 682,112" fill="#2d8a85" opacity="0.35"/>
+  </g>
+  <g class="f4" style="animation-delay:-9s">
+    <polygon points="750,115 755,112 757,120 752,122" fill="#1a4a4f" opacity="0.4"/>
+  </g>
+  <g class="f5" style="animation-delay:-4s">
+    <polygon points="100,140 105,137 107,145 102,147" fill="#2d6b6e" opacity="0.4"/>
+  </g>
+  <g class="f6" style="animation-delay:-11s">
+    <polygon points="820,120 825,117 827,125 822,127" fill="#1a4a4f" opacity="0.35"/>
+  </g>
+  <g class="f1" style="animation-delay:-13s">
+    <polygon points="370,185 374,182 376,189 372,191" fill="#142e33" opacity="0.5"/>
+  </g>
+  <g class="f3" style="animation-delay:-15s">
+    <polygon points="520,180 524,177 526,184 522,186" fill="#1a4a4f" opacity="0.45"/>
+  </g>
+  <g class="f5" style="animation-delay:-6s">
+    <polygon points="350,170 354,167 356,174 352,176" fill="#2d6b6e" opacity="0.4"/>
+    <polygon points="345,178 348,175 350,181 347,183" fill="#1a4a4f" opacity="0.3"/>
+  </g>
+  <g class="f2" style="animation-delay:-14s">
+    <polygon points="540,175 544,172 546,179 542,181" fill="#2d8a85" opacity="0.35"/>
+  </g>
+  <g class="f4" style="animation-delay:-16s">
+    <polygon points="560,185 564,182 566,189 562,191" fill="#1a4a4f" opacity="0.4"/>
+  </g>
+  <g class="f6" style="animation-delay:-1s">
+    <polygon points="180,80 184,77 186,84 182,86" fill="#1a4a4f" opacity="0.35"/>
+  </g>
+  <g class="f2" style="animation-delay:-9s">
+    <polygon points="650,75 654,72 656,79 652,81" fill="#2d6b6e" opacity="0.3"/>
+  </g>
+  <g class="f4" style="animation-delay:-5s">
+    <polygon points="780,85 784,82 786,89 782,91" fill="#1a4a4f" opacity="0.3"/>
+  </g>
+  <g class="f1" style="animation-delay:-7s">
+    <polygon points="80,95 84,92 86,99 82,101" fill="#2d8a85" opacity="0.3"/>
+  </g>
+
+  <g class="splat">
+    <circle cx="650" cy="88" r="5" fill="url(#coral-burst)"/>
+    <path d="M653,84 Q659,78 663,80" stroke="#f07040" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.6"/>
+    <path d="M647,85 Q642,78 644,75" stroke="#e86830" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <circle cx="664" cy="79" r="1.5" fill="#f07040" opacity="0.5"/>
+  </g>
+  <g class="splat" style="animation-delay:-5s">
+    <circle cx="160" cy="95" r="3.5" fill="url(#coral-burst)"/>
+    <path d="M163,92 Q168,87 170,89" stroke="#e86830" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <circle cx="170" cy="87" r="1" fill="#f07040" opacity="0.4"/>
+  </g>
+  <circle class="pulse-s" cx="790" cy="95" r="2.5" fill="#e86830" opacity="0.4" style="animation-delay:-2s"/>
+  <circle class="pulse-s" cx="360" cy="80" r="2" fill="#f07040" opacity="0.3" style="animation-delay:-4s"/>
+  <circle class="pulse-s" cx="520" cy="75" r="1.5" fill="#e86830" opacity="0.25" style="animation-delay:-6s"/>
+
+  <circle class="star" cx="75" cy="35" r="1.2" fill="#ffffff" style="animation-delay:0s"/>
+  <circle class="star-b" cx="180" cy="22" r="1" fill="#ffffff" style="animation-delay:-2s"/>
+  <circle class="star" cx="310" cy="40" r="0.9" fill="#ffffff" style="animation-delay:-4s"/>
+  <circle class="star-b" cx="420" cy="18" r="1.1" fill="#ffffff" style="animation-delay:-1s"/>
+  <circle class="star" cx="530" cy="32" r="0.8" fill="#ffffff" style="animation-delay:-5s"/>
+  <circle class="star-b" cx="620" cy="15" r="1" fill="#ffffff" style="animation-delay:-3s"/>
+  <circle class="star" cx="700" cy="38" r="1.1" fill="#ffffff" style="animation-delay:-6s"/>
+  <circle class="star-b" cx="790" cy="25" r="0.9" fill="#ffffff" style="animation-delay:-4.5s"/>
+  <circle class="star" cx="860" cy="42" r="1" fill="#ffffff" style="animation-delay:-2.5s"/>
+  <circle class="star-b" cx="140" cy="55" r="0.8" fill="#ffffff" style="animation-delay:-6.5s"/>
+  <circle class="star" cx="250" cy="60" r="0.7" fill="#ffffff" style="animation-delay:-3.5s"/>
+  <circle class="star-b" cx="470" cy="52" r="0.9" fill="#ffffff" style="animation-delay:-5.5s"/>
+  <circle class="star" cx="580" cy="48" r="0.8" fill="#ffffff" style="animation-delay:-1.5s"/>
+  <circle class="star-b" cx="750" cy="55" r="0.7" fill="#ffffff" style="animation-delay:-4s"/>
+  <circle class="star" cx="840" cy="65" r="0.8" fill="#ffffff" style="animation-delay:-7s"/>
+  <circle class="star" cx="45" cy="70" r="0.6" fill="#ffffff" style="animation-delay:-2s"/>
+  <circle class="star-b" cx="670" cy="28" r="0.7" fill="#ffffff" style="animation-delay:-0.5s"/>
+
+  <path class="ski-1" d="M270,128 L278,138 L272,145 L280,153 L274,160 L282,168 L276,175 L284,183 L278,190" stroke="#ffffff" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path class="ski-2" d="M330,120 L337,130 L332,137 L339,145 L334,152 L341,160 L336,167 L343,175 L338,182" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path class="ski-3" d="M240,135 L247,144 L242,150 L249,158 L244,164 L251,172 L246,178 L253,186 L248,192" stroke="#ffffff" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <path id="pn" d="M155,200 L155,165 L160,160 L168,160 L175,165 L175,200" pathLength="100" stroke="#f07040" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 100" opacity="0.8">
+    <animate attributeName="stroke-dasharray" values="0 100;100 0;100 0;0 100" keyTimes="0;0.6;0.85;1" dur="14s" repeatCount="indefinite"/>
+  </path>
+  <circle r="2.5" fill="#f07040" opacity="0.9" filter="url(#glow)">
+    <animateMotion dur="14s" repeatCount="indefinite" keyPoints="0;1;1;0" keyTimes="0;0.6;0.85;1" calcMode="linear">
+      <mpath href="#pn"/>
+    </animateMotion>
+  </circle>
+
+  <path id="p0" d="M330,155 L340,150 L355,150 L365,155 L370,170 L370,185 L365,200 L355,205 L340,205 L330,200 L325,185 L325,170 L330,155" pathLength="100" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 100" opacity="0.7">
+    <animate attributeName="stroke-dasharray" values="0 100;100 0;100 0;0 100" keyTimes="0;0.6;0.85;1" dur="16s" repeatCount="indefinite" begin="-4s"/>
+  </path>
+  <circle r="2.5" fill="#ffffff" opacity="0.85" filter="url(#glow)">
+    <animateMotion dur="16s" repeatCount="indefinite" begin="-4s" keyPoints="0;1;1;0" keyTimes="0;0.6;0.85;1" calcMode="linear">
+      <mpath href="#p0"/>
+    </animateMotion>
+  </circle>
+
+  <path id="pc" d="M575,155 L555,155 L545,165 L545,190 L555,200 L575,200" pathLength="100" stroke="#f07040" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 100" opacity="0.75">
+    <animate attributeName="stroke-dasharray" values="0 100;100 0;100 0;0 100" keyTimes="0;0.6;0.85;1" dur="13s" repeatCount="indefinite" begin="-8s"/>
+  </path>
+  <circle r="2.5" fill="#f07040" opacity="0.9" filter="url(#glow)">
+    <animateMotion dur="13s" repeatCount="indefinite" begin="-8s" keyPoints="0;1;1;0" keyTimes="0;0.6;0.85;1" calcMode="linear">
+      <mpath href="#pc"/>
+    </animateMotion>
+  </circle>
+
+  <path id="p1" d="M720,165 L730,155 L730,205 L720,205 L740,205" pathLength="100" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 100" opacity="0.7">
+    <animate attributeName="stroke-dasharray" values="0 100;100 0;100 0;0 100" keyTimes="0;0.6;0.85;1" dur="12s" repeatCount="indefinite" begin="-2s"/>
+  </path>
+  <circle r="2.5" fill="#ffffff" opacity="0.85" filter="url(#glow)">
+    <animateMotion dur="12s" repeatCount="indefinite" begin="-2s" keyPoints="0;1;1;0" keyTimes="0;0.6;0.85;1" calcMode="linear">
+      <mpath href="#p1"/>
+    </animateMotion>
+  </circle>
+
+  <g class="glider" opacity="0.5">
+    <g class="sway">
+      <path d="M200,88 C205,84 212,84 217,88" stroke="#ffffff" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+      <line x1="208" y1="87" x2="208" y2="93" stroke="#ffffff" stroke-width="0.4" opacity="0.6"/>
+      <circle cx="208" cy="93" r="0.8" fill="#ffffff" opacity="0.5"/>
+    </g>
+  </g>
+
+  <g class="glider-2" opacity="0.4">
+    <g class="sway" style="animation-delay:-2s">
+      <path d="M700,78 C704,74 710,74 714,78" stroke="#ffffff" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <line x1="707" y1="77" x2="707" y2="82" stroke="#ffffff" stroke-width="0.3" opacity="0.5"/>
+      <circle cx="707" cy="82" r="0.7" fill="#ffffff" opacity="0.4"/>
+    </g>
+  </g>
+
+  <g class="glider-3" opacity="0.35">
+    <g class="sway" style="animation-delay:-3s">
+      <path d="M350,95 C354,91 360,91 364,95" stroke="#ffffff" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+      <line x1="357" y1="94" x2="357" y2="99" stroke="#ffffff" stroke-width="0.3" opacity="0.4"/>
+      <circle cx="357" cy="99" r="0.6" fill="#ffffff" opacity="0.35"/>
+    </g>
+  </g>
+
+  <path class="ski-4" d="M580,125 L586,134 L581,140 L587,148 L582,154 L588,162 L583,168 L589,176 L584,183" stroke="#ffffff" stroke-width="0.7" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <path class="ski-5" d="M620,130 L626,139 L621,145 L627,152 L622,158 L628,165 L623,171 L629,178" stroke="#ffffff" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.45"/>
+
+  <line x1="680" y1="95" x2="600" y2="145" stroke="#2d6b6e" stroke-width="0.4" opacity="0.2"/>
+  <g class="cable-u" opacity="0.45">
+    <rect x="648" y="115" width="5" height="3" fill="#2d8a85" rx="0.5"/>
+    <line x1="650" y1="118" x2="650" y2="122" stroke="#ffffff" stroke-width="0.3" opacity="0.4"/>
+    <circle cx="650" cy="122" r="0.6" fill="#ffffff" opacity="0.3"/>
+  </g>
+  <g class="cable-d" opacity="0.35">
+    <rect x="628" y="130" width="5" height="3" fill="#2d8a85" rx="0.5"/>
+    <line x1="630" y1="133" x2="630" y2="137" stroke="#ffffff" stroke-width="0.3" opacity="0.3"/>
+    <circle cx="630" cy="137" r="0.6" fill="#ffffff" opacity="0.25"/>
+  </g>
+
+  <rect width="900" height="300" fill="none" stroke="#0a1418" stroke-width="50" stroke-opacity="0.25" rx="0"/>
+</svg>
